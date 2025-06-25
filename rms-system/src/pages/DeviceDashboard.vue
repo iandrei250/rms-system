@@ -1,5 +1,5 @@
 <template>
-  <div>{{ currentMetadata?.type }}</div>
+  <div class="p-4">{{ currentMetadata?.type }}</div>
   <div class="p-4" v-for="(telemetryData, id) in telemetryDataEntries">
     <Card
       :id="String(id)"
@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { onMounted, onUnmounted, ref } from "vue";
 import { useStore } from "../helpers/store/store";
 import type { TelemetryData, TelemetryMetadata } from "../helpers/types/types";
 import Card from "../components/Shared/Card.vue";
@@ -35,11 +35,21 @@ onMounted(async () => {
     );
   }
 
+  const interval = setInterval(async () => {
+    if (store.selectedDevice) {
+      telemetryDataEntries.value = await getDeviceTelemetry(
+        store.selectedDevice.id
+      );
+    }
+  }, 2000);
+
   telemetryMetadata.value = await getDeviceMetadata();
 
   currentMetadata.value =
     telemetryMetadata.value.find(
       (meta) => meta.id === store.selectedDevice?.id
     ) || null;
+
+  onUnmounted(() => clearInterval(interval));
 });
 </script>
