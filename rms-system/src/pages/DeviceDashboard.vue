@@ -3,10 +3,9 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
 import { useStore } from "../helpers/store/store";
+const store = useStore();
 
 onMounted(() => {
-  const store = useStore();
-
-  console.log(store.selectedDevice);
+  store.loadSelectedDeviceFromStorage();
 });
 </script>
