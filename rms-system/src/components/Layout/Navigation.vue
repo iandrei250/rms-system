@@ -17,12 +17,15 @@ import { appName } from "../../helpers/constants/constants";
               class="h-8 w-auto"
               src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
               alt="Your Company"
+              W
             />
-            <div class="ps-5">
-              <p class="px-3 py-2 text-lg font-medium text-white">
-                {{ appName }}
-              </p>
-            </div>
+            <a href="/">
+              <div class="ps-5 hover:bg-gray-700">
+                <p class="px-3 py-2 text-lg font-medium text-white">
+                  {{ appName }}
+                </p>
+              </div>
+            </a>
           </div>
         </div>
       </div>

@@ -21,10 +21,14 @@
     v-for="(telemetryData, id) in telemetryDataEntries"
     v-if="store.activeTab === 'telemetry'"
   >
-    <Card
-      :id="String(id)"
-      :unit="currentMetadata?.unit ?? ''"
-      :entry="telemetryData"
+    <DeviceCard
+      :header="telemetryEntryId + String(id)"
+      :subheader="
+        telemetryEntryValue +
+        telemetryData.value +
+        (currentMetadata?.unit ?? '')
+      "
+      :status="formatDate(telemetryData.timestamp)"
     />
   </div>
   <div v-else><TableLogs :logs="currentLogs" /></div>
@@ -38,7 +42,6 @@ import type {
   TelemetryData,
   TelemetryMetadata,
 } from "../helpers/types/types";
-import Card from "../components/Dashboard/Card.vue";
 import {
   getDeviceLogs,
   getDeviceMetadata,
@@ -47,8 +50,12 @@ import {
 import {
   seeLogsButton,
   seeTelemetryButton,
+  telemetryEntryId,
+  telemetryEntryValue,
 } from "../helpers/constants/constants";
 import TableLogs from "../components/Dashboard/TableLogs.vue";
+import DeviceCard from "../components/shared/Card.vue";
+import { formatDate } from "../helpers/utils";
 const store = useStore();
 
 const telemetryDataEntries = ref<TelemetryData>({});
