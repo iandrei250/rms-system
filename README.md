@@ -9,7 +9,7 @@
 
  ``` VITE_API_BASE_URL=http://localhost:3000 ```
 
- Before running the application make sure to do ``` npm install ```
+ Before running the application make sure to do ``` npm install ``` ( you might need to do ```  npm install --legacy-peer-deps ``` if the normal command fails )
 
  Run the frontend application with ``` npm start ```
 
