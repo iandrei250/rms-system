@@ -17,7 +17,7 @@ export interface TelemetryData {
   [key: string]: DataEntry;
 }
 
-interface DataEntry {
+export interface DataEntry {
   value: number;
   timestamp: string;
 }

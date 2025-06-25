@@ -26,7 +26,7 @@ export const getDeviceMetadata: () => Promise<
 
 export const getDeviceTelemetry: (
   deviceId: string
-) => Promise<TelemetryData[]> = async (deviceId) => {
+) => Promise<TelemetryData> = async (deviceId) => {
   try {
     const response = await axios.get(API_BASE_URL + Paths.telemetry(deviceId));
     return response.data;

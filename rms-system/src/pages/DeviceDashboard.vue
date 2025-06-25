@@ -1,19 +1,45 @@
-<template></template>
+<template>
+  <div>{{ currentMetadata?.type }}</div>
+  <div class="p-4" v-for="(telemetryData, id) in telemetryDataEntries">
+    <Card
+      :id="String(id)"
+      :unit="currentMetadata?.unit ?? ''"
+      :entry="telemetryData"
+    />
+  </div>
+</template>
 
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { useStore } from "../helpers/store/store";
 import type { TelemetryData, TelemetryMetadata } from "../helpers/types/types";
-import { getDeviceTelemetry } from "../helpers/api/apiRequests";
+import Card from "../components/Shared/Card.vue";
+import {
+  getDeviceMetadata,
+  getDeviceTelemetry,
+} from "../helpers/api/apiRequests";
 const store = useStore();
 
-const telemetryData = ref<TelemetryData[]>([]);
+const telemetryDataEntries = ref<TelemetryData>({});
+
+const telemetryMetadata = ref<TelemetryMetadata[]>([]);
+
+const currentMetadata = ref<TelemetryMetadata | null>(null);
 
 onMounted(async () => {
   store.loadSelectedDeviceFromStorage();
 
   if (store.selectedDevice) {
-    telemetryData.value = await getDeviceTelemetry(store.selectedDevice.id);
+    telemetryDataEntries.value = await getDeviceTelemetry(
+      store.selectedDevice.id
+    );
   }
+
+  telemetryMetadata.value = await getDeviceMetadata();
+
+  currentMetadata.value =
+    telemetryMetadata.value.find(
+      (meta) => meta.id === store.selectedDevice?.id
+    ) || null;
 });
 </script>
