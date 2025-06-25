@@ -6,6 +6,7 @@ import { useStore } from "../helpers/store/store";
 
 onMounted(() => {
   const store = useStore();
+
   console.log(store.selectedDevice);
 });
 </script>
