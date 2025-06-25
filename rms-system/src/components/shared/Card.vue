@@ -1,5 +1,5 @@
 <template>
-  <div class="rounded overflow-hidden shadow-lg">
+  <div class="rounded overflow-hidden shadow-lg" :data-testid="header">
     <div class="px-6 py-4">
       <div class="font-bold text-xl mb-2">
         {{ header }}

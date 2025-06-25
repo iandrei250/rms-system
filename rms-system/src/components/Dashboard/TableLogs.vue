@@ -1,6 +1,6 @@
 <template>
   <div class="relative overflow-x-auto shadow-md">
-    <table class="w-full text-sm text-left text-black">
+    <table class="w-full text-sm text-left text-black" data-testid="logs-table">
       <thead
         class="text-xs text-black uppercase bg-white border-b border-gray-200"
       >
