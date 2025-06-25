@@ -6,3 +6,18 @@ export interface Device {
   connectionStatus: string;
   iotState: string;
 }
+
+export interface TelemetryMetadata {
+  id: string;
+  type: string;
+  unit: string;
+}
+
+export interface TelemetryData {
+  [key: string]: DataEntry;
+}
+
+interface DataEntry {
+  value: number;
+  timestamp: string;
+}
