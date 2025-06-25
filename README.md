@@ -17,4 +17,9 @@
 
  The application is also responsive so you can try on different resolutions
 
- P.S. You can run the tests by executing ``` npm test ```
+ P.S. 
+ To  run the tests you need to do  ``` npx playwright install ``` to install the ncessary Playwright browsers
+
+ After doing that you can run the tests by running ``` npm test ```
+
+ Lastly, run ``` px playwright show-report ``` to visualize the results in the browser
