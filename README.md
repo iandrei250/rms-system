@@ -20,6 +20,6 @@
  P.S. 
  To  run the tests you need to do  ``` npx playwright install ``` to install the ncessary Playwright browsers
 
- After doing that you can run the tests by running ``` npm test ```
+ After doing that you can run the tests by running ``` npm test ``` ( while having the frontend application already running )
 
  Lastly, run ``` px playwright show-report ``` to visualize the results in the browser
