@@ -9,6 +9,8 @@
 
  ``` VITE_API_BASE_URL=http://localhost:3000 ```
 
+ Before running the application make sure to do ``` npm install ```
+
  Run the frontend application with ``` npm start ```
 
  Now you should be able to see data flowing in !
