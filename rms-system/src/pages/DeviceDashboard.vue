@@ -1,8 +1,10 @@
 <template>
   <div class="flex justify-between p-2">
-    <div class="p-4 text-lg bold">{{ currentMetadata?.type }}</div>
+    <div class="p-4 text-lg bold">
+      {{ store.activeTab === "telemetry" ? currentMetadata?.type : "" }}
+    </div>
     <button
-      class="bg-gray-800 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      class="bg-gray-800 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded h-[50px]"
       @click="
         () => {
           store.setActiveTab(
