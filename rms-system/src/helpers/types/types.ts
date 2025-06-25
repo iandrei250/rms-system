@@ -21,3 +21,9 @@ export interface DataEntry {
   value: number;
   timestamp: string;
 }
+
+export interface DeviceLogs {
+  type: string;
+  message: string;
+  timestamp: string;
+}

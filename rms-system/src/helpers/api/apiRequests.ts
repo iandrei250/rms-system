@@ -1,5 +1,10 @@
 import axios from "axios";
-import type { Device, TelemetryData, TelemetryMetadata } from "../types/types";
+import type {
+  Device,
+  DeviceLogs,
+  TelemetryData,
+  TelemetryMetadata,
+} from "../types/types";
 import { Paths } from "./paths";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
@@ -35,9 +40,9 @@ export const getDeviceTelemetry: (
   }
 };
 
-export const getDeviceLogs: (deviceId: string) => Promise<any> = async (
-  deviceId
-) => {
+export const getDeviceLogs: (
+  deviceId: string
+) => Promise<DeviceLogs[]> = async (deviceId) => {
   try {
     const response = await axios.get(API_BASE_URL + Paths.logs(deviceId));
     return response.data;

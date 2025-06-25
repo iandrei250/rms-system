@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { RouterLink } from "vue-router";
 import { appName } from "../../helpers/constants/constants";
-import router from "../../router";
 </script>
 
 <template>

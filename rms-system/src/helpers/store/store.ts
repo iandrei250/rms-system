@@ -6,6 +6,7 @@ const STORAGE_KEY = "selectedDevice";
 export const useStore = defineStore("store", {
   state: () => ({
     selectedDevice: null as Device | null,
+    activeTab: "telemetry",
   }),
 
   actions: {
@@ -24,6 +25,10 @@ export const useStore = defineStore("store", {
       if (saved) {
         this.selectedDevice = JSON.parse(saved);
       }
+    },
+
+    setActiveTab(tab: string) {
+      this.activeTab = tab;
     },
   },
 });

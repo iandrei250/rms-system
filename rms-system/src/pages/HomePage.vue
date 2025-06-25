@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-3">
+  <div class="grid grid-cols-2 md:grid-cols-3">
     <div class="p-4" v-for="device in devices">
       <DeviceCard :key="device.id" :device="device" />
     </div>
